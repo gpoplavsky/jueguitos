@@ -161,7 +161,8 @@ document.addEventListener('DOMContentLoaded', () => {
           square4.classList.contains('player-one')
         )
         {
-          result.innerHTML = '¡Ganó ' + playerOne.name + '!'
+          result.innerHTML = '¡Ganó ' + playerOne.name + '!';
+          console.log(result.innerText);
         }
         //check those squares to see if they all have the class of player-two
         if (
@@ -171,7 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
           square4.classList.contains('player-two')
         )
         {
-          result.innerHTML = '¡Ganó ' + playerTwo.name + '!'
+          result.innerHTML = '¡Ganó ' + playerTwo.name + '!';
+          console.log(result.innerText);
         }
       }
     }
@@ -199,8 +201,3 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // Acá termina el código de linea de 4
-
-
-  // Ver el ganador en la consola
-
-  console.log(result.innerText)
