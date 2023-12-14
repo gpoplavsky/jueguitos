@@ -59,3 +59,7 @@ line-height: 1.5em;
     background-color: blue;
     border-radius: 20px;
   }
+
+  .dark {
+    background-color: violet;
+  }

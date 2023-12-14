@@ -1,22 +1,48 @@
-let playerOneName = prompt("Jugador N° 1, inserte su nombre:");
-let playerOneAge = prompt("Hola, " + playerOneName + " ¿cuántos años tenés?");
+// Defino la función constructora para los objetos jugadores
+function Player(name, age) {
+  this.name = name;
+  this.age = age;
+}
 
-let playerTwoName = prompt("Ahora le toca el turno al Jugador N° 2. ¿Cómo te llamas?");
-let playerTwoAge = prompt("¡Muy bien, " + playerTwoName + "! Ahora dime tu edad:");
+// Método de búsqueda y filtrado en el array de jugadores
+Player.filterPlayers = function(players, searchQuery) {
+  searchQuery = searchQuery.toLowerCase();
+
+  return players.filter(player => {
+    const playerName = player.name.toLowerCase();
+    return playerName.includes(searchQuery);
+  });
+};
+
+// Crear las instancias de los jugadores
+let playerOne = new Player("Jugador N° 1", 20)
+playerOne.name = prompt("Jugador N° 1, inserte su nombre:"); 
+playerOne.age = prompt("Hola, " + playerOne.name + " ¿cuántos años tenés?");
+
+let playerTwo = new Player("Jugador N° 2", 25)
+playerTwo.name = prompt("Ahora le toca el turno al Jugador N° 2. ¿Cómo te llamas?") 
+playerTwo.age = prompt("¡Muy bien, " + playerTwo.name + "! Ahora dime tu edad:");
+
+// Acceder a los datos de los jugadores
+console.log("Jugador Uno:", playerOne.name, playerOne.age);
+console.log("Jugador Dos:", playerTwo.name, playerTwo.age);
+
+// Crear array de jugadores
+let players = [playerOne, playerTwo];
 
 // Pedirle al menor que resuelva la trivia
-if (parseInt(playerOneAge) >= parseInt(playerTwoAge)) {
-    let resultadoTrivia = prompt(playerTwoName + ", ¿cuántos años tenía " + playerOneName + " cuando naciste? / Pista: " + (parseInt(playerOneAge) + "-" + parseInt(playerTwoAge)));
+if (parseInt(playerOne.age) >= parseInt(playerTwo.age)) {
+    let resultadoTrivia = prompt(playerTwo.name + ", ¿cuántos años tenía " + playerTwo.name + " cuando naciste? / Pista: " + (parseInt(playerOne.age) + "-" + parseInt(playerTwo.age)));
     
-    if (parseInt(resultadoTrivia) === (parseInt(playerOneAge) - parseInt(playerTwoAge))) {
+    if (parseInt(resultadoTrivia) === (parseInt(playerOne.age) - parseInt(playerTwo.age))) {
         alert("¡Muy bien! El resultado es correcto");
     } else {
         alert("El resultado es incorrecto.");
     }
 } else {
-    let resultadoTrivia = prompt(playerOneName + ", ¿cuántos años tenía " + playerTwoName + " cuando naciste? / Pista: " + (parseInt(playerTwoAge) + "-" + parseInt(playerOneAge)));
+    let resultadoTrivia = prompt(playerOne.name + ", ¿cuántos años tenía " + playerTwo.name + " cuando naciste? / Pista: " + (parseInt(playerTwo.age) + "-" + parseInt(playerOne.age)));
     
-    if (parseInt(resultadoTrivia) === (parseInt(playerTwoAge) - parseInt(playerOneAge))) {
+    if (parseInt(resultadoTrivia) === (parseInt(playerTwo.age) - parseInt(playerOne.age))) {
         alert("¡Muy bien! El resultado es correcto");
     } else {
         alert("El resultado es incorrecto.");
@@ -24,9 +50,22 @@ if (parseInt(playerOneAge) >= parseInt(playerTwoAge)) {
 }
 
 // Mostrar resultados en el HTML
-document.getElementById("playerOne").innerHTML = "Jugador N° 1: " + playerOneName + "<br>Edad: " + playerOneAge;
-document.getElementById("playerTwo").innerHTML = "Jugador N° 2: " + playerTwoName + "<br>Edad: " + playerTwoAge;
+document.getElementById("playerOne").innerHTML = "Jugador N° 1: " + playerOne.name + "<br>Edad: " + playerOne.age;
+document.getElementById("playerTwo").innerHTML = "Jugador N° 2: " + playerTwo.name + "<br>Edad: " + playerTwo.age;
 
+// Ejemplo de búsqueda y filtrado del array de jugadores
+let searchQuery = prompt("Ingresa el nombre del jugador que deseas buscar:");
+let filteredPlayers = Player.filterPlayers(players, searchQuery);
+
+// Mostrar resultados
+if (filteredPlayers.length > 0) {
+  console.log("Resultados de la búsqueda:");
+  filteredPlayers.forEach(player => {
+    console.log("Nombre:", player.name, "Edad:", player.age);
+  });
+} else {
+  console.log("No se encontraron jugadores con ese nombre.");
+}
 
 // Acá empieza el código de linea de 4
 document.addEventListener('DOMContentLoaded', () => {
@@ -122,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
           square4.classList.contains('player-one')
         )
         {
-          result.innerHTML = '¡Ganó ' + playerOneName + '!'
+          result.innerHTML = '¡Ganó ' + playerOne.name + '!'
         }
         //check those squares to see if they all have the class of player-two
         if (
@@ -132,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
           square4.classList.contains('player-two')
         )
         {
-          result.innerHTML = '¡Ganó ' + playerTwoName + '!'
+          result.innerHTML = '¡Ganó ' + playerTwo.name + '!'
         }
       }
     }
@@ -160,3 +199,8 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // Acá termina el código de linea de 4
+
+
+  // Ver el ganador en la consola
+
+  console.log(result.innerText)
