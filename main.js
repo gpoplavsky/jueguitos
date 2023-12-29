@@ -4,6 +4,17 @@ function Player(name, age) {
   this.age = age;
 }
 
+// Método para guardar los jugadores en el local storage
+Player.savePlayers = function(players) {
+  localStorage.setItem('players', JSON.stringify(players));
+};
+
+// Método para cargar los jugadores desde el local storage
+Player.loadPlayers = function() {
+  const playersData = localStorage.getItem('players');
+  return playersData ? JSON.parse(playersData) : [];
+};
+
 // Método de búsqueda y filtrado en el array de jugadores
 Player.filterPlayers = function(players, searchQuery) {
   searchQuery = searchQuery.toLowerCase();
