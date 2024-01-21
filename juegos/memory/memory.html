@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Memotest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@800;900&family=Alegreya:ital,wght@0,400;0,700;0,800;1,700&family=Source+Sans+3:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
+    <script src="memory.js" charset="utf-8"></script>
+    <style>
+        .memory-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 300px;
+    }
+    </style>
+</head>
+<body>
+
+    <div id="memotest" class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-9">
+                <h2>Jueguito: Memotest</h2>
+                <h3>Puntaje:<span id="memory-result"></span></h3>
+                <div class="memory-grid">
+    
+                </div>
+            </div>
+            <div class="col-12 col-md-3">
+                <h3>Reglas del juego</h3>
+                <ul>
+                    <li>Comenzarás volteando una carta</li>
+                    <li>Si la siguiente carta que volteas coincide, recibirás una alerta emergente y sumarás +1 a tu puntuación</li>
+                    <li>Estas cartas luego desaparecerán</li>
+                    <li>Si la siguiente carta que volteas no coincide, recibirás una alerta emergente indicándolo y las cartas se volverán a voltear</li>
+                    <li>El juego continúa hasta que emparejes todas las cartas en el tablero</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

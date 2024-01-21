@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulacion Juego 3D</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@800;900&family=Alegreya:ital,wght@0,400;0,700;0,800;1,700&family=Source+Sans+3:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v2.6.1/dist/aframe-extras.min.js"></script>
+  <script src="https://cdn.rawgit.com/ngokevin/kframe/d7bd9968/components/sun-sky/dist/aframe-sun-sky.min.js"></script>
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js" defer></script>
+  <script src="build/build.js" defer></script>
+  <script src="vendor/aframe-bmfont-component.min.js" defer></script>
+  <script src="assets/data/waves.js" defer></script>
+  <script src="simulador.js" defer></script>
+</head>
+
+<body>
+  <a-scene>
+
+    <a-assets>
+      <img src="./images/piso.avif" id="piso" />
+      <img src="./images/pared.jpg" id="pared" />
+    </a-assets>
+
+    <a-sun-sky material="sunPosition: 0 1 0"></a-sun-sky>
+
+    <a-entity id="jugador" camera kinematic-body universal-controls position="0 1.6 -1">
+      <a-text value="" color="black" id="score" position="-1 -.5 -1"></a-text>
+      <a-cursor fuse="true" fuse-timeout="800"></a-cursor>
+    </a-entity>
+    
+    <a-grid static-body src="#piso"></a-grid>
+    <a-entity id="muros" src="#pared"></a-entity>
+    <a-entity id="premios"></a-entity>
+       
+
+  </a-scene>
+
+</body>
+
+</html>

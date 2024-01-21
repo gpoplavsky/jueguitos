@@ -60,6 +60,38 @@ line-height: 1.5em;
     border-radius: 20px;
   }
 
-  .dark {
+.dark {
     background-color: violet;
   }
+
+#inicio div{
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+    justify-content: space-evenly;
+}
+
+.navbar-expand-lg {
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-collapse {
+    flex-basis: auto;
+}
+
+footer {
+    text-align: center;
+    font-size: small;
+    margin-bottom: 20px;
+}
